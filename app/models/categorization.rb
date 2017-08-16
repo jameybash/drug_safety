@@ -1,5 +1,6 @@
 class Categorization < ApplicationRecord
   
+  has_many :cells
   
   def self.setup_categorizations
     Categorization.create!(scale: 1,

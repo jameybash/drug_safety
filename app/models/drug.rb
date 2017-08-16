@@ -19,7 +19,7 @@ class Drug < ApplicationRecord
     Drug.create!(name: 'Amphetamines')
     Drug.create!(name: 'MDMA')
     Drug.create!(name: 'Cocaine')
-    Drug.create!(name: 'Caffiene')
+    Drug.create!(name: 'Caffeine')
     Drug.create!(name: 'Alcohol')
     Drug.create!(name: 'GHB/GBL')
     Drug.create!(name: 'Opioids')
