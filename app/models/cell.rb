@@ -3,8 +3,9 @@ class Cell < ApplicationRecord
   belongs_to :drug_2, class_name: 'Drug'
   belongs_to :categorization
   
-  # For reference:
-  # Cell.where(drug_1_id: 2, drug_2_id: 1).or(Cell.where(drug_1_id: 1, drug_2_id: 2))
+  def self.find_cell(drug1, drug2)
+    Cell.where(drug_1_id: drug1.id, drug_2_id: drug2.id).or(Cell.where(drug_1_id: drug2.id, drug_2_id: drug1.id)).first
+  end
   
   def self.setup_cells
     Cell.setup_lsd_cells
@@ -31,6 +32,8 @@ class Cell < ApplicationRecord
     Cell.setup_tramadol_cells
     Cell.setup_benzo_cells
   end
+  
+  private
   
   def self.setup_lsd_cells
     drug1= Drug.find_by(name: 'LSD')
