@@ -1,6 +1,12 @@
-<% if @cell %>
+<% if @d1 && @d2 %>
   <h2><%= @d1.name %> & <%= @d2.name %></h2>
-  <h3 style="color:<%= @cell.categorization.color %>"><%= @cell.categorization.description %></h3>
+  <% if @d1 == @d2 %>
+    <p>Whoops, you picked the same drug twice!</p>
+  <% elsif @cell %>
+    <h3 style="color:<%= @cell.categorization.color %>"><%= @cell.categorization.description %></h3>
+  <% else %>
+    <p>We're sorry, we were unable to find results for these 2 drugs.</p>
+  <% end %>
   
   <p> Try another combination?</p>
 <% end %>
