@@ -1,9 +1,17 @@
+<% if @cell %>
+  <h2><%= @d1.name %> & <%= @d2.name %></h2>
+  <h3 style="color:<%= @cell.categorization.color %>"><%= @cell.categorization.description %></h3>
+  
+  <p> Try another combination?</p>
+<% end %>
+
 <p>Enter 2 types of drugs in order to see if they are considered to be safe to take together or not.</p>
 
+<%= form_tag('cells/find_cell') do %>
 
+  <%= select_tag :drug_1_id, options_for_select(Drug.pluck(:name, :id).collect { |name, id| [name, id] }) %>
+  <%= select_tag :drug_2_id, options_for_select(Drug.pluck(:name, :id).collect { |name, id| [name, id] }) %>
+  
+  <%= submit_tag 'Submit' %>
 
-<p>
-  <% if @cell %>
-    <%= @cell.categorization.description %>
-  <% end %>
-</p>
+<% end %>

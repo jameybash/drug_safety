@@ -28,4 +28,5 @@ class Drug < ApplicationRecord
     Drug.create!(name: 'MAOIs')
     Drug.create!(name: 'SSRIs')
   end
+  
 end
